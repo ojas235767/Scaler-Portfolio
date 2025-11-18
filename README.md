@@ -1,6 +1,6 @@
 # Ojas Chaurasia – Data Analyst Portfolio  
 
-**Live Site:** https://ojaschaurasia.me (or your GitHub Pages / Netlify link)  
+**Live Site:** https://ojas235767.github.io/Scaler-Portfolio/
 **GitHub:** https://github.com/ojas235767  
 **LinkedIn:** https://linkedin.com/in/ojas-chaurasia  
 **Email:** ojasaryaman@gmail.com | **Phone:** +91-9370375993 | **Location:** Pune, India  
