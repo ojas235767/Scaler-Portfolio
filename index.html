@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ojas Chaurasia | Data Analyst</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1f2937;
+      --accent: #2563eb;
+      --light: #f8fafc;
+      --gray: #64748b;
+      --border: #e2e8f0;
+    }
+    [data-theme="dark"] {
+      --bg: #0f172a;
+      --text: #e2e8f0;
+      --light: #1e293b;
+      --gray: #94a3b8;
+      --border: #334155;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      transition: all 0.4s ease;
+    }
+
+    /* Header - Resume Style */
+    header {
+      padding: 60px 5%;
+      background: linear-gradient(to bottom, #f0f9ff, #ffffff);
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    [data-theme="dark"] header { background: linear-gradient(to bottom, #1e293b, #0f172a); }
+
+    .header-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    /* Rectangle Photo Frame - Exactly like your resume */
+    .photo-frame {
+      width: 180px;
+      height: 240px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 5px solid white;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      transition: all 0.4s ease;
+    }
+    .photo-frame:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(37,99,235,0.3);
+    }
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .info h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #1e40af;
+      margin-bottom: 0.5rem;
+    }
+    .info .title {
+      font-size: 1.5rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 1rem;
+      color: var(--gray);
+      margin-top: 1.5rem;
+    }
+    .contact a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .contact a:hover { text-decoration: underline; }
+
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      background: var(--light);
+      padding: 12px;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border: 1px solid var(--border);
+    }
+
+    main { padding: 80px 5%; max-width: 1100px; margin: 0 auto; }
+
+    h2 {
+      font-size: 2.2rem;
+      color: #1e40af;
+      margin: 60px 0 30px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid var(--accent);
+      display: inline-block;
+      font-weight: 700;
+    }
+
+    .skills {
+      background: var(--light);
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 40px;
+      color: var(--gray);
+      line-height: 2;
+      border: 1px solid var(--border);
+    }
+
+    /* Experience & Projects */
+    .job, .project {
+      margin-bottom: 40px;
+      padding: 25px;
+      background: var(--light);
+      border-radius: 12px;
+      border-left: 5px solid var(--accent);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+    .job:hover, .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(37,99,235,0.1);
+    }
+
+    .job h3, .project h3 {
+      font-size: 1.4rem;
+      color: #1e40af;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .company, .date {
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 1.1rem;
+    }
+    .date {
+      color: var(--gray);
+      font-style: italic;
+      font-weight: normal;
+      font-size: 0.95rem;
+    }
+
+    ul {
+      padding-left: 22px;
+      margin: 15px 0;
+    }
+    li {
+      margin-bottom: 10px;
+      position: relative;
+    }
+    li::marker { color: var(--accent); font-weight: bold; }
+
+    .project a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .project a:hover { text-decoration: underline; }
+
+    footer {
+      text-align: center;
+      padding: 60px 20px;
+      background: #0f172a;
+      color: white;
+      font-size: 1.1rem;
+      margin-top: 100px;
+    }
+
+    @media (max-width: 768px) {
+      .header-content { flex-direction: column; text-align: center; }
+      .photo-frame { width: 150px; height: 200px; }
+      .info h1 { font-size: 2.4rem; }
+      main { padding: 60px 5%; }
+    }
+  </style>
+</head>
+<body data-theme="light">
+
+  <div class="theme-toggle" onclick="document.body.dataset.theme = document.body.dataset.theme === 'light' ? 'dark' : 'light'">
+    <i class="fas fa-moon"></i>
+  </div>
+
+  <header>
+    <div class="header-content" data-aos="fade-down">
+      <div class="photo-frame">
+        <img src="Ojas_Image.png" alt="Ojas Chaurasia">
+      </div>
+      <div class="info">
+        <h1>Ojas Chaurasia</h1>
+        <p class="title">Data Analyst</p>
+        <div class="contact">
+          <span>Pune</span> • 
+          <a href="tel:+919370375993">+91-9370375993</a> • 
+          <a href="https://linkedin.com/in/ojas-chaurasia" target="_blank">LinkedIn</a> • 
+          <a href="https://github.com/ojas235767" target="_blank">GitHub</a> • 
+          <a href="https://scaler.com" target="_blank">Scaler</a> • 
+          <a href="mailto:ojasaryaman@gmail.com">ojasaryaman@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <h2 data-aos="fade-up">SKILLS</h2>
+    <div class="skills" data-aos="fade-up">
+      NumPy, Seaborn, Google Colab, Power BI, Python, Tableau, Excel, Pandas, Matplotlib, SQL, JIRA, EDA, Python Libraries
+    </div>
+
+    <h2 data-aos="fade-up">EXPERIENCE</h2>
+
+    <div class="job" data-aos="fade-up">
+      <h3>Data Analysis and Research Intern <span class="date">Mar 2024 – Jan 2025</span></h3>
+      <div class="company">Appzen</div>
+      <ul>
+        <li>Examined 10,000+ Zendesk and JIRA support-ticket records to identify recurring issues, improving chatbot accuracy and reducing response time by 30%.</li>
+        <li>Developed 5+ live dashboards in Apache Superset visualizing KPIs across expense and AAP data.</li>
+        <li>Migrated dashboard suite to Amazon QuickSight, optimizing load times by 40%.</li>
+        <li>Utilized Amazon Redshift SQL for advanced querying and real-time analytics.</li>
+      </ul>
+    </div>
+
+    <div class="job" data-aos="fade-up">
+      <h3>Data Analytics Consulting Intern <span class="date">Feb 2023 – Apr 2023</span></h3>
+      <div class="company">KPMG</div>
+      <ul>
+        <li>Cleaned and modeled 100K+ customer records using Excel and Python.</li>
+        <li>Identified 3 high-value customer segments, driving a simulated 15% increase in engagement.</li>
+        <li>Launched Power BI and Tableau dashboards empowering 20+ stakeholders with actionable insights.</li>
+      </ul>
+    </div>
+
+    <h2 data-aos="fade-up">PROJECTS</h2>
+
+    <div class="project" data-aos="fade-up">
+      <h3>AeroFit Treadmill Customer Analysis</h3>
+      <a href="https://github.com/ojas235767/Aerofit-Treadmill-Customer-Analysis" target="_blank">
+        https://github.com/ojas235767/Aerofit-Treadmill-Customer-Analysis
+      </a>
+      <ul><li>Analyzed 5K+ customer profiles using Python to identify demographic patterns; built KPI dashboards that improved product targeting and marketing precision by 22%.</li></ul>
+    </div>
+
+    <div class="project" data-aos="fade-up">
+      <h3>Netflix Content Analysis</h3>
+      <a href="https://github.com/ojas235767/Netlfix-Content-Analysis" target="_blank">
+        https://github.com/ojas235767/Netlfix-Content-Analysis
+      </a>
+      <ul><li>Analyzed 8.8K+ Netflix titles using Python to uncover trends by genre, rating, and country; built KPI dashboards revealing audience preferences.</li></ul>
+    </div>
+
+    <div class="project" data-aos="fade-up">
+      <h3>Hotel Booking Analysis</h3>
+      <a href="https://github.com/ojas235767/HotelBookingAnalysis" target="_blank">
+        https://github.com/ojas235767/HotelBookingAnalysis
+      </a>
+      <ul><li>Used Python, Excel, and Power BI to identify customer behavior and cancellation trends; proposed dynamic pricing strategies to boost retention.</li></ul>
+    </div>
+
+    <div class="project" data-aos="fade-up">
+      <h3>Yulu Bike-Sharing</h3>
+      <a href="https://github.com/ojas235767/Yulu" target="_blank">
+        https://github.com/ojas235767/Yulu
+      </a>
+      <ul><li>Analyzed 30K+ ride records using Python; built dashboards optimizing bike distribution and peak-hour efficiency by 15%+.</li></ul>
+    </div>
+
+    <div class="project" data-aos="fade-up">
+      <h3>Walmart Sales & Holiday Impact</h3>
+      <a href="https://github.com/ojas235767/Walmart" target="_blank">
+        https://github.com/ojas235767/Walmart
+      </a>
+      <ul><li>Analyzed 45K+ sales records using Python; Power BI dashboards improved forecast accuracy by 20% and strategy effectiveness by 15%.</li></ul>
+    </div>
+
+    <div class="project" data-aos="fade-up">
+      <h3>Covid-19 Global Data Analysis</h3>
+      <a href="https://github.com/ojas235767/Ojas_Covid19DataAnalysis" target="_blank">
+        https://github.com/ojas235767/Ojas_Covid19DataAnalysis
+      </a>
+      <ul><li>Analyzed 18K+ global records using Python; Power BI dashboards showed 30% link between vaccination rates and case decline.</li></ul>
+    </div>
+
+    <div class="project" data-aos="fade-up">
+      <h3>Delhivery Logistics Optimization & Forecasting</h3>
+      <a href="https://github.com/ojas235767/Delhivery-Logistics-Optimization-and-Forecasting" target="_blank">
+        https://github.com/ojas235767/Delhivery-Logistics-Optimization-and-Forecasting
+      </a>
+      <ul><li>Cleaned 145K+ logistics records; revealed 45% efficiency gap and optimized routing, capacity planning, and delivery forecasting.</li></ul>
+    </div>
+
+    <h2 data-aos="fade-up">EDUCATION</h2>
+    <div class="job" data-aos="fade-up" style="border-left:5px solid #10b981;">
+      <h3>B.E. / B.Tech</h3>
+      <div class="company">JECRC University, Jaipur</div>
+      <div class="date">Graduated 2024</div>
+    </div>
+
+  </main>
+
+  <footer>
+    © 2025 Ojas Chaurasia • Pune, India • Available for Full-Time Data Analyst Roles<br>
+    <a href="mailto:ojasaryaman@gmail.com" style="color:#60a5fa; text-decoration:none;">ojasaryaman@gmail.com</a>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+    document.querySelector('.theme-toggle').addEventListener('click', function() {
+      this.innerHTML = document.body.dataset.theme === 'light' 
+        ? '<i class="fas fa-moon"></i>' 
+        : '<i class="fas fa-sun"></i>';
+    });
+  </script>
+</body>
+</html>
